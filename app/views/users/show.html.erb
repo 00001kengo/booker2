@@ -1,0 +1,28 @@
+<p>books</p>
+<table>
+
+  <tr>
+    <td>Title</td>
+    <td>Opinion</td>
+    <td>ユーザーネーム</td>
+  </tr>
+
+    <tr>
+      <td><%= @book.title %></td>
+      <td><%= @book.body %></td>
+      <td><%= @book.user.name %></td>
+
+
+    </tr>
+
+</table>
+
+
+<h1>画像投稿フォーム</h1>
+<%= form_with model: @book, local:true do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
+<% end %>
