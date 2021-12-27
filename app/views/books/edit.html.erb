@@ -1,9 +1,18 @@
-<h1>編集画面</h1>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>errors
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<h1>Editing Book</h1>
 <!-- form_with部分 -->
 <%= form_with model:@book, local: true do |f| %>
   <h4>title</h4>
   <%= f.text_field :title %>
   <h4>body</h4>
   <%= f.text_field :body %>
-  <%= f.submit 'update book' %>
+  <%= f.submit 'Update Book' %>
 <% end %>
+
+<%= link_to "Show", book_path(@book) %> <%= link_to "Back", books_path %>

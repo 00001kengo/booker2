@@ -1,0 +1,29 @@
+
+
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3"><%= render 'books/aaa', {book: @book, user: @user} %></div>
+    <div class="col-md-8 offset-md-1">
+      <h3>books</h3>
+
+      <table class="table table-hover table-inverse">
+        <thead>
+            <tr>
+
+              <th>image</th>
+              <th>name</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= attachment_image_tag user, :profile_image_id, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %></td>
+            <td><%= user.name %></td>
+
+            <td><%= link_to 'Show', user_path(user) %></rd>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
